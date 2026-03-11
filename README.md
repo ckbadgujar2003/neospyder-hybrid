@@ -332,7 +332,7 @@ If you do not agree with these terms, do not use this software.
 **Chirayu Badgujar**
 
 - GitHub: [@ckbadgujar2003](https://github.com/ckbadgujar2003)
-- Repository v1: [neospyder-core](https://github.com/ckbadgujar2003/neospyder-core) 
+- Repository v1: [neospyder-base](https://github.com/ckbadgujar2003/neospyder-base) 
 - Repository v2: [neospyder-hybrid](https://github.com/ckbadgujar2003/neospyder-hybrid)
 - LinkedIn: [Chirayu Badgujar](https://www.linkedin.com/in/chirayu-badgujar-477128223/)
 
