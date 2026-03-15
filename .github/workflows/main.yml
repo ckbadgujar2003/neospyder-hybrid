@@ -1,0 +1,40 @@
+name: NeoSpyder Intelligence Engine
+
+on:
+  schedule:
+    - cron: "0 08 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-neospyder:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: Install Dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Install Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y chromium-browser chromium-chromedriver
+
+    - name: Run NeoSpyder
+      env:
+        SENDER_MAIL: ${{ secrets.SENDER_MAIL }}
+        SENDER_MAIL_PASSWORD: ${{ secrets.SENDER_MAIL_PASSWORD }}
+        RECEIVER_MAIL: ${{ secrets.RECEIVER_MAIL }}
+        SMTP_HOST: smtp.gmail.com
+        SMTP_PORT: 587
+      run: |
+        python main.py
