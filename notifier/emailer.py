@@ -35,9 +35,11 @@ def format_email(advisory: dict) -> MIMEMultipart:
         cve_links = "No CVEs assigned"
 
     # ---- Affected Products ----
-    affected_products = "<br>".join(
-        advisory.get("affected_products", ["Not listed"])
-    )
+    products = advisory.get("affected_products", ["Not listed"])
+    if isinstance(products, dict):
+        affected_products = "<br>".join(products.keys())
+    else:
+        affected_products = "<br>".join(products)
 
     # ---- Email Body ----
     html_body = f"""
